@@ -48,7 +48,7 @@ public class calculadora
                 System.out.print("A resposta é " + result);
 
             }
-            else if (operacao == '/')
+            else
             {
                 if(num2 == 0)
                 {
