@@ -6,46 +6,71 @@ public class calculadora
     {
         Scanner resp = new Scanner(System.in);
 
-        int num1, num2, result; 
-        char operacao, usu; //usu de usuario
+        int num1, num2, result;
+        float num3;
+        char operacao, an; //usu de usuario
 
-        System.out.print("Digite um numero: ");
-        num1 = resp.nextInt();
+        do {
 
-        System.out.print("Digite OUTRO numero: ");
-        num2 = resp.nextInt();
+            System.out.print("Digite um numero: ");
+            num1 = resp.nextInt();
 
-        do
-        {
-           System.out.print("Qual Operacao voce deseja? (+) (-) (x) (/): ");
-           operacao = resp.next().charAt(0);
+            System.out.print("Digite OUTRO numero: ");
+            num2 = resp.nextInt();
 
-           if(operacao != '+' && operacao != '-' && operacao != 'x' && operacao != '/')
-           System.out.println("DIGITE UMA DAS OPCOES!!!");
+            do {
+                System.out.print("Qual Operacao voce deseja? (+) (-) (x) (/): ");
+                operacao = resp.next().charAt(0);
 
-        } while (operacao != '+' && operacao != '-' && operacao != 'x' && operacao != '/');
+                if (operacao != '+' && operacao != '-' && operacao != 'x' && operacao != '/')
+                    System.out.println("DIGITE UMA DAS OPCOES!!!");
 
-        if(operacao == '+')
-        {
-            result = num1 + num2;
-            System.out.print("A resposta é " + result);
-        }
-        else if(operacao == '-')
-        {
-            result = num1 - num2;
-            System.out.print("A resposta é " + result);
-        }
-        else if(operacao == 'x')
-        {
-            result = num1 * num2;
-            System.out.print("A resposta é " + result);
-        }
-        else if(operacao == '/')
-        {
-            result = num1 / num2;
-            System.out.print("A resposta é " + result);
-        }
+            } while (operacao != '+' && operacao != '-' && operacao != 'x' && operacao != 'X' && operacao != '/');
 
+
+            if (operacao == '+') {
+
+                result = num1 + num2;
+                System.out.print("A resposta é " + result);
+
+            }
+            else if (operacao == '-')
+            {
+
+                result = num1 - num2;
+                System.out.print("A resposta é " + result);
+
+            }
+            else if (operacao == 'x' || operacao == 'X')
+            {
+
+                result = num1 * num2;
+                System.out.print("A resposta é " + result);
+
+            }
+            else if (operacao == '/')
+            {
+                if(num2 == 0)
+                {
+                    System.out.println("Não é possivel dividir por 0");
+                }
+                else
+                {
+                    num3 = (float) num1 / num2;
+                    System.out.print("A resposta é " + num3);
+                }
+            }
+
+            System.out.println();
+
+            do
+            {
+                System.out.println("Deseja faz outra operação? (S/N)");
+                an = resp.next().charAt(0);
+
+            }while(an != 'N' && an != 'n' && an != 's' && an != 'S');
+
+        }while(an == 's' || an == 'S');
 
     }
 } 
